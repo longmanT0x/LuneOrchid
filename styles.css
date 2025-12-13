@@ -1,0 +1,868 @@
+/* Retro Windows 95/98 Aesthetic */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --win-blue: #0080FF;
+    --win-pink: #FF69B4;
+    --win-green: #00FF00;
+    --win-yellow: #FFFF00;
+    --win-bg: #C0C0C0;
+    --win-dark: #808080;
+    --win-darker: #404040;
+    --win-light: #E0E0E0;
+    --win-white: #FFFFFF;
+    --win-black: #000000;
+    --desktop-bg: #008080;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background: var(--desktop-bg);
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+    background-size: 20px 20px;
+    color: var(--win-black);
+    line-height: 1.4;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Taskbar */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: var(--win-bg);
+    border-top: 2px solid var(--win-white);
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    z-index: 10000;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+}
+
+.start-button {
+    background: var(--win-bg);
+    border: 2px outset var(--win-bg);
+    padding: 4px 15px;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--win-black);
+    cursor: pointer;
+    margin-right: 5px;
+    image-rendering: pixelated;
+}
+
+.start-button:active {
+    border: 2px inset var(--win-bg);
+}
+
+.taskbar-windows {
+    flex: 1;
+    display: flex;
+    gap: 3px;
+    margin: 0 5px;
+}
+
+.taskbar-item {
+    background: var(--win-bg);
+    border: 2px outset var(--win-bg);
+    padding: 4px 12px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--win-black);
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+.taskbar-item.active {
+    border: 2px inset var(--win-bg);
+    background: var(--win-light);
+}
+
+.taskbar-item:active {
+    border: 2px inset var(--win-bg);
+}
+
+.taskbar-clock {
+    background: var(--win-bg);
+    border: 2px inset var(--win-bg);
+    padding: 4px 10px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--win-black);
+    margin-left: auto;
+}
+
+/* Desktop Icons */
+.desktop-icons {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 2;
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    cursor: pointer;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.icon-image {
+    font-size: 48px;
+    margin-bottom: 5px;
+    image-rendering: pixelated;
+}
+
+.icon-label {
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    color: var(--win-white);
+    text-shadow: 1px 1px 0 var(--win-black);
+    text-align: center;
+}
+
+/* Windows */
+.window {
+    background: var(--win-bg);
+    border: 2px outset var(--win-bg);
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+    margin: 20px auto;
+    max-width: 900px;
+    position: relative;
+    image-rendering: pixelated;
+}
+
+.window-titlebar {
+    background: linear-gradient(to bottom, var(--win-blue), #0066CC);
+    color: var(--win-white);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--win-black);
+    cursor: move;
+}
+
+.window-title {
+    flex: 1;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.window-btn {
+    background: var(--win-bg);
+    border: 1px outset var(--win-bg);
+    width: 20px;
+    height: 18px;
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--win-black);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+}
+
+.window-btn:active {
+    border: 1px inset var(--win-bg);
+}
+
+.window-content {
+    padding: 15px;
+    background: var(--win-white);
+    min-height: 200px;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    background: #000000;
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.welcome-window {
+    background: var(--win-pink);
+    border: 3px outset var(--win-pink);
+    max-width: 600px;
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+}
+
+.welcome-window .window-content {
+    background: var(--win-pink);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    color: var(--win-white);
+    text-shadow: 3px 3px 0 var(--win-black);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    image-rendering: pixelated;
+}
+
+.hero-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    color: var(--win-white);
+    text-shadow: 2px 2px 0 var(--win-black);
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.win95-button {
+    background: var(--win-bg);
+    border: 2px outset var(--win-bg);
+    padding: 8px 20px;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--win-black);
+    cursor: pointer;
+    image-rendering: pixelated;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.win95-button:hover {
+    background: var(--win-light);
+}
+
+.win95-button:active {
+    border: 2px inset var(--win-bg);
+}
+
+/* Inputs */
+.win95-input {
+    background: var(--win-white);
+    border: 2px inset var(--win-bg);
+    padding: 6px 10px;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: var(--win-black);
+    image-rendering: pixelated;
+}
+
+.win95-input:focus {
+    outline: 1px dotted var(--win-black);
+}
+
+/* Sections */
+.section {
+    padding: 40px 20px;
+    position: relative;
+}
+
+.about-section {
+    background: var(--win-pink);
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px);
+    background-size: 20px 20px;
+    background-color: var(--win-pink);
+}
+
+.music-section,
+.events-section,
+.team-section {
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 50%, #FF69B4 100%);
+    position: relative;
+}
+
+.music-section::before,
+.events-section::before,
+.team-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.2) 2px, rgba(255,255,255,0.2) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.2) 2px, rgba(255,255,255,0.2) 4px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.music-section > *,
+.events-section > *,
+.team-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.about-window,
+.music-window,
+.events-window,
+.team-window {
+    background: var(--win-bg);
+}
+
+/* About Section */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.about-image {
+    position: relative;
+}
+
+.image-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--win-pink), var(--win-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win-white);
+    font-weight: bold;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    image-rendering: pixelated;
+    overflow: hidden;
+}
+
+.artist-image {
+    background: #000;
+    padding: 0;
+}
+
+.artist-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.win95-border {
+    border: 2px inset var(--win-bg);
+}
+
+.about-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--win-black);
+}
+
+.about-text .lead {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--win-blue);
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+/* Music Section */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.music-card {
+    background: var(--win-bg);
+    border: 2px outset var(--win-bg);
+    overflow: hidden;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.music-card:hover {
+    border: 2px inset var(--win-bg);
+}
+
+.music-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.music-image .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--win-pink), var(--win-green));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win-white);
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-image .image-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.music-image .image-placeholder:has(img[style*="display: block"]) {
+    background: #000;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: var(--win-white);
+    border: 2px outset var(--win-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.1s ease;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.music-card:hover .play-button {
+    opacity: 1;
+}
+
+.music-info {
+    padding: 10px;
+    background: var(--win-white);
+}
+
+.music-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--win-black);
+    font-weight: bold;
+}
+
+.music-meta {
+    color: var(--win-darker);
+    font-size: 14px;
+}
+
+/* Events Section */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.event-card {
+    background: var(--win-bg);
+    border: 2px outset var(--win-bg);
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    transition: all 0.1s ease;
+}
+
+.event-card:hover {
+    border: 2px inset var(--win-bg);
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    padding: 10px;
+    background: var(--win-blue);
+    border: 2px inset var(--win-blue);
+    text-align: center;
+    color: var(--win-white);
+}
+
+.date-day {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.event-content {
+    flex: 1;
+    background: var(--win-white);
+    padding: 10px;
+    border: 2px inset var(--win-bg);
+}
+
+.event-content h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--win-black);
+    font-weight: bold;
+}
+
+.event-location,
+.event-time {
+    color: var(--win-darker);
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.event-description {
+    color: var(--win-black);
+    margin: 10px 0;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.event-button {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.team-member {
+    background: var(--win-bg);
+    border: 2px outset var(--win-bg);
+    padding: 15px;
+    text-align: center;
+    transition: all 0.1s ease;
+}
+
+.team-member:hover {
+    border: 2px inset var(--win-bg);
+}
+
+.member-image {
+    margin-bottom: 15px;
+}
+
+.member-image .image-placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    border-radius: 0;
+    background: linear-gradient(135deg, var(--win-pink), var(--win-yellow));
+    border: 2px inset var(--win-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win-white);
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+}
+
+.member-image .image-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-image .image-placeholder img {
+    display: none;
+}
+
+.member-image .image-placeholder:has(img[style*="display: block"]) {
+    background: #000;
+}
+
+.member-info {
+    background: var(--win-white);
+    padding: 10px;
+    border: 2px inset var(--win-bg);
+}
+
+.member-info h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: var(--win-black);
+    font-weight: bold;
+}
+
+.member-role {
+    color: var(--win-blue);
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.member-bio {
+    color: var(--win-black);
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 20px;
+    color: var(--win-black);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Popup Window */
+.popup-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20000;
+    display: none;
+}
+
+.popup-window.show {
+    display: block;
+}
+
+.popup-content {
+    text-align: center;
+    padding: 30px;
+}
+
+.popup-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--win-black);
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Footer */
+.footer {
+    background: var(--win-bg);
+    border-top: 2px inset var(--win-bg);
+    padding: 30px 20px 20px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--win-blue);
+    image-rendering: pixelated;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    color: var(--win-black);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.footer-section p {
+    color: var(--win-black);
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.social-link {
+    color: var(--win-blue);
+    text-decoration: underline;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.social-link:hover {
+    color: var(--win-black);
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.newsletter-form input {
+    width: 100%;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 2px inset var(--win-bg);
+    color: var(--win-darker);
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .music-grid,
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .event-card {
+        flex-direction: column;
+    }
+
+    .event-date {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        min-width: auto;
+    }
+
+    .desktop-icons {
+        display: none;
+    }
+
+    .taskbar-windows {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1rem;
+    }
+
+    .window {
+        margin: 10px;
+    }
+
+    .window-content {
+        padding: 10px;
+    }
+}
+
+/* Pixelated effects */
+@supports (image-rendering: pixelated) {
+    .window,
+    .win95-button,
+    .win95-input,
+    .taskbar-item,
+    .start-button {
+        image-rendering: pixelated;
+    }
+}
