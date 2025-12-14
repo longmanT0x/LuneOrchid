@@ -330,14 +330,16 @@ body {
 
 .music-section,
 .events-section,
-.team-section {
+.team-section,
+.behind-scenes-section {
     background: linear-gradient(135deg, #FF69B4 0%, #FF1493 50%, #FF69B4 100%);
     position: relative;
 }
 
 .music-section::before,
 .events-section::before,
-.team-section::before {
+.team-section::before,
+.behind-scenes-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -354,7 +356,8 @@ body {
 
 .music-section > *,
 .events-section > *,
-.team-section > * {
+.team-section > *,
+.behind-scenes-section > * {
     position: relative;
     z-index: 1;
 }
@@ -362,7 +365,8 @@ body {
 .about-window,
 .music-window,
 .events-window,
-.team-window {
+.team-window,
+.behind-scenes-window {
     background: var(--win-bg);
 }
 
@@ -689,6 +693,59 @@ body {
     font-weight: bold;
 }
 
+/* Behind the Scenes Photo Collage */
+.behind-scenes-window .window-content {
+    background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 50%, #FFB6C1 100%);
+    padding: 40px 20px;
+    min-height: 600px;
+    position: relative;
+    overflow: visible;
+}
+
+.photo-collage {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    position: absolute;
+    width: var(--size, 200px);
+    height: var(--size, 200px);
+    left: var(--x, 10%);
+    top: var(--y, 10%);
+    transform: rotate(var(--rotation, 0deg));
+    transition: transform 0.3s ease, z-index 0.3s ease;
+    z-index: 1;
+}
+
+.photo-item:hover {
+    transform: rotate(var(--rotation, 0deg)) scale(1.1);
+    z-index: 10;
+}
+
+.photo-border {
+    width: 100%;
+    height: 100%;
+    background: var(--win-white);
+    padding: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--win-white);
+}
+
+.photo-border img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-border span {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+}
+
 /* Popup Window */
 .popup-window {
     position: fixed;
@@ -820,6 +877,14 @@ body {
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, auto);
+    }
+
+    .photo-collage {
+        min-height: 400px;
+    }
+
+    .photo-item {
+        --size: 150px !important;
     }
 
     .event-card {

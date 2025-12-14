@@ -286,3 +286,25 @@ document.querySelectorAll('.member-image img').forEach(img => {
         img.onload();
     }
 });
+
+// Show behind the scenes photos when they're loaded
+document.querySelectorAll('.photo-border img').forEach(img => {
+    img.onload = function() {
+        this.style.display = 'block';
+        const span = this.nextElementSibling;
+        if (span) span.style.display = 'none';
+    };
+    img.onerror = function() {
+        // Image not found, show placeholder
+        this.style.display = 'none';
+        const span = this.nextElementSibling;
+        if (span) span.style.display = 'flex';
+    };
+    // Trigger check
+    if (img.complete) {
+        img.onload();
+    } else {
+        // If not complete, check if it exists
+        img.onerror();
+    }
+});

@@ -19,6 +19,7 @@
             <button class="taskbar-item" data-section="music">Music</button>
             <button class="taskbar-item" data-section="events">Events</button>
             <button class="taskbar-item" data-section="team">Team</button>
+            <button class="taskbar-item" data-section="behind-scenes">Behind the Scenes</button>
         </div>
         <div class="taskbar-clock">6:18 PM</div>
     </nav>
@@ -98,7 +99,7 @@
             </div>
             <div class="window-content">
                 <div class="music-grid">
-                <div class="music-card" data-youtube-link="">
+                <div class="music-card" data-youtube-link="https://www.youtube.com/watch?v=F1KIXKDSxiU">
                     <div class="music-image">
                         <div class="play-button">
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -194,6 +195,73 @@
     </section>
 
     <!-- Behind the Scenes Section -->
+    <section id="behind-scenes" class="section behind-scenes-section">
+        <div class="window behind-scenes-window">
+            <div class="window-titlebar">
+                <span class="window-title">Behind the Scenes</span>
+                <div class="window-controls">
+                    <button class="window-btn minimize">_</button>
+                    <button class="window-btn maximize">□</button>
+                    <button class="window-btn close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="photo-collage">
+                    <!-- Add your team photos here by adding more .photo-item divs -->
+                    <div class="photo-item" style="--rotation: -5deg; --x: 10%; --y: 5%; --size: 200px;">
+                        <div class="photo-border">
+                            <img src="photo1.jpeg" alt="Team member" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <span style="display: none; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #FFB6C1, #FF69B4); color: white; font-weight: bold;">Photo 1</span>
+                        </div>
+                    </div>
+                    <div class="photo-item" style="--rotation: 8deg; --x: 30%; --y: 15%; --size: 180px;">
+                        <div class="photo-border">
+                            <img src="photo2.jpeg" alt="Team member" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <span style="display: none; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #FFB6C1, #FF69B4); color: white; font-weight: bold;">Photo 2</span>
+                        </div>
+                    </div>
+                    <div class="photo-item" style="--rotation: -3deg; --x: 55%; --y: 8%; --size: 220px;">
+                        <div class="photo-border">
+                            <img src="photo3.jpeg" alt="Team member" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <span style="display: none; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #FFB6C1, #FF69B4); color: white; font-weight: bold;">Photo 3</span>
+                        </div>
+                    </div>
+                    <div class="photo-item" style="--rotation: 6deg; --x: 15%; --y: 40%; --size: 190px;">
+                        <div class="photo-border">
+                            <img src="photo4.jpeg" alt="Team member" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <span style="display: none; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #FFB6C1, #FF69B4); color: white; font-weight: bold;">Photo 4</span>
+                        </div>
+                    </div>
+                    <div class="photo-item" style="--rotation: -7deg; --x: 45%; --y: 35%; --size: 250px;">
+                        <div class="photo-border">
+                            <img src="photo5.jpeg" alt="Team member" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <span style="display: none; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #FFB6C1, #FF69B4); color: white; font-weight: bold;">Photo 5</span>
+                        </div>
+                    </div>
+                    <div class="photo-item" style="--rotation: 4deg; --x: 70%; --y: 45%; --size: 170px;">
+                        <div class="photo-border">
+                            <img src="photo6.jpeg" alt="Team member" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <span style="display: none; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #FFB6C1, #FF69B4); color: white; font-weight: bold;">Photo 6</span>
+                        </div>
+                    </div>
+                    <div class="photo-item" style="--rotation: -6deg; --x: 25%; --y: 65%; --size: 210px;">
+                        <div class="photo-border">
+                            <img src="photo7.jpeg" alt="Team member" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <span style="display: none; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #FFB6C1, #FF69B4); color: white; font-weight: bold;">Photo 7</span>
+                        </div>
+                    </div>
+                    <div class="photo-item" style="--rotation: 5deg; --x: 60%; --y: 70%; --size: 180px;">
+                        <div class="photo-border">
+                            <img src="photo8.jpeg" alt="Team member" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <span style="display: none; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #FFB6C1, #FF69B4); color: white; font-weight: bold;">Photo 8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
     <section id="team" class="section team-section">
         <div class="window team-window">
             <div class="window-titlebar">
