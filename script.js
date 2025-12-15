@@ -97,37 +97,9 @@ if (startButton) {
             startButton.style.border = '2px outset var(--win-bg)';
         }, 200);
         
-        // Show warning popup randomly
-        if (Math.random() > 0.7) {
-            showWarningPopup();
-        }
     });
 }
 
-// Warning popup
-function showWarningPopup() {
-    const popup = document.getElementById('warning-popup');
-    if (popup) {
-        popup.classList.add('show');
-    }
-}
-
-// Close warning popup
-document.querySelectorAll('#warning-popup .window-btn.close').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.getElementById('warning-popup').classList.remove('show');
-    });
-});
-
-// Warning popup buttons
-document.querySelectorAll('#warning-popup .win95-button').forEach(btn => {
-    btn.addEventListener('click', () => {
-        if (btn.textContent === 'Format C:\\') {
-            alert('⚠️ Format cancelled. System is safe!');
-        }
-        document.getElementById('warning-popup').classList.remove('show');
-    });
-});
 
 // Music card play button functionality
 document.querySelectorAll('.music-card').forEach(card => {
@@ -250,12 +222,6 @@ window.addEventListener('load', () => {
         welcomeWindow.style.animation = 'fadeIn 0.5s ease-in';
     }
     
-    // Randomly show warning popup after a delay
-    setTimeout(() => {
-        if (Math.random() > 0.5) {
-            showWarningPopup();
-        }
-    }, 3000);
 });
 
 // Add fade-in animation
